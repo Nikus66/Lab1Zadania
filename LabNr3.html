@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+ <meta charset="utf-8" />
+ <title>My Website</title>
+</head>
+    <body>
+        dodawanie:<div id="dodawanie"></div><br/>
+        odejmowanie:<div id="odejmowanie"></div><br/>
+        mnożenie:<div id="mnozenie"></div><br/>
+        dzielenie:<div id="dzielenie"></div><br/>
+        trojkat:<div id="trojkat"></div><br/>
+        Najwieksza z podanych liczb:<div id="najwieksza z podanych liczb"></div>
+        obiekt student<br/>
+        <div style="margin-left:30 px;"id="obiektStudent"></div><br/>
+        zegar:<div id="zegar"></div><br/>
+        <script>
+            console.log("zadanie 1")
+            let x=20, y=10;
+            console.log(x+y);
+            console.log(x-y);
+            console.log(x*y);
+            console.log(x/y);
+            document.getElementById("dodawanie").innerHTML=(x+y);
+            document.getElementById("odejmowanie").innerHTML=(x-y);
+            document.getElementById("mnozenie").innerHTML=(x*y);
+            document.getElementById("dzielenie").innerHTML=(x/y);
+
+            console.log("zadanie 2");
+            const a=10, b=20, c=10;
+            console.log((a+b+c)/2);
+            document.getElementById("trojkat").innerHTML=((a+b+c)/2);
+
+            console.log("zadanie 3");
+            let random=Math.ceil(Math.random()*10), UserInput;
+            console.log("wylosowana liczba"+random);
+            let promptText="zgadnij wylosowana liczbe";
+            do{
+                UserInput=prompt(promptText,0);
+                if(UserInput>random) promptText="wylosowana liczba jest mniejsza";
+                else if (UserInput<random) promptText="wylosowana liczba jest wieksza"
+
+            }while(UserInput!=random);
+            alert("brawo zgadles")
+
+            console.log("zadanie 4");
+            let numbers=[parseFloat(prompt("podaj pierwsza liczbe",0)),
+            parseFloat(prompt("podaj druga liczbe",0)),
+            parseFloat(prompt("podaj trzecia liczbe", 0))];
+            console.log("podane cyfry"+numbers);
+            console.log("najwieksza z podanych liczb"+Math.max(numbers[0],numbers[1],numbers[2]));
+            document.getElementById("najwieksza z podanych liczb").innerHTML=Math.max(numbers[0],numbers[1],numbers[2]);
+
+            console.log("zadanie 5")
+            function gcd(a, b){
+                    if (b == 0) {
+                        return a;
+                    } else {
+                        return gcd(b, a % b);
+                    }
+                }
+                alert("Największy wspólny dzielnik: "+gcd(parseInt(prompt("Podaj pierwszą liczbę: ", 0)),parseInt(prompt("Podaj drugą liczbę: ", 0))));
+
+                console.log("zadanie 6")
+                class student{
+                    constructor(imie,nazwisko,wiek){
+                        this.imie=imie;
+                        this.naziwsko=nazwisko;
+                        this.wiek=wiek;
+
+                    }
+                }
+                let studencik1=new student("Marek","Judasz",21);
+                console.log("Student1:");
+                console.log(studencik1);
+                studencik1.Wiecejniz20=true;
+                let studencik2=new student("Jan","Nowak",19);
+                console.log("Student2:");
+                console.log(studencik2);
+                studencik2.Wiecejniz20=false;
+                let studencik3=new student("Adam","Kowalksi",21);
+                console.log("Student3:");
+                console.log(studencik3);
+                studencik3.Wiecejniz20=false;
+
+                console.log("zadanie 7")
+                const studencina= Object.create(null);
+                studencina.imie=prompt("podaj imie:", "Dawid");
+                studencina.nazwisko=prompt("podaj naziwsko:","Matysiak");
+                studencina.wiek=prompt("podaj wiek:","20");
+                console.log("Student:");
+                console.log(studencina);
+                document.getElementById("obiektStudent").innerHTML='Imie:'+studencina.imie+'<br/> nazwisko: '+studencina.nazwisko+'<br/> Wiek:'+studencina.wiek;
+               console.log("zadanie 8");
+                function showTime(){
+                    console.log("bump");
+                    let data=new Date;
+                    document.getElementById("zegar").innerHTML=(data.getHours()+":"+data.getMinutes()+":"+data.getSeconds());
+               }
+               setInterval(showTime, 1000)
+         </script>
+     </body>
+</html>
