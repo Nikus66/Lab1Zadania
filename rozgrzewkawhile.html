@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Odliczanie noworoczne</title>
+</head>
+<body>
+
+    <p id="countdown"></p>
+
+    <script>
+        let i = 10;
+        while (i >= 0) {
+            setTimeout(function() {
+                document.getElementById("countdown").innerHTML = i;
+                if (i === 0) {
+                    document.getElementById("countdown").innerHTML = "Szczesliwego nowego roku!";
+                }
+                i--;
+            }, (10 - i) * 1000);
+        }
+    </script>
+
+</body>
+</html>
