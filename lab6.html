@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+ <meta charset="utf-8" />
+ <title>My Website</title>
+</head>
+<body>
+    <script>
+            class prostokat{
+                constructor(wysokosc,szerokosc,name){
+                this.wysokosc=wysokosc;
+                this.szerokosc=szerokosc;
+                this.name=name;
+
+            }
+
+            licz_obwod()
+            {
+                return this.wysokosc*2+this.szerokosc*2;
+            }
+
+            licz_pole()
+            {
+                return this.wysokosc*this.szerokosc;
+            }
+          porownaj(inny_prostokat)
+            {
+                return this.licz_pole()>inny_prostokat.licz_pole() ? this : inny_prostokat;
+            }
+        }
+        const Marian=new prostokat(10,10,"Marian");
+        const Arek=new prostokat(10,20,"Arek");
+        const Marcin=new prostokat(20,30,"Marcin");
+        console.log("obwod: "+Marian.licz_obwod());
+        console.log("pole prostokata: "+Arek.licz_pole());
+
+        console.log("Większe pole ma: "+Arek.porownaj(Marian).name);
+    
+   
+    
+        class trojkat{
+            constructor(wysokosc,podstawa,name){
+                this.wysokosc=wysokosc;
+                this.podstawa=podstawa;
+                this.name=name;
+                
+            }
+            licz_pole()
+            {
+                return (this.podstawa*this.wysokosc)/2;
+            }
+            porownaj(inny_trojkat)
+            {
+                return this.licz_pole()>inny_trojkat.licz_pole() ? this : inny_trojkat;
+            }
+        }
+        const Ulrich=new trojkat(5,5,"Ulrich");
+        const Von=new trojkat(10,10,"Von");
+        const Jungingen= new trojkat(30,20,"Jungingen");
+        
+        console.log("POle trojkata : "+Ulrich.licz_pole());
+        console.log("wieksze "+Von.porownaj(Jungingen).name);
+
+        class trapez{
+            constructor(wysokosc,podstawa1,podstawa2,name){
+                this.wysokosc=wysokosc;
+                this.podstawa1=podstawa1;
+                this.podstawa2=podstawa2;
+                this.name=name;
+            }
+
+            licz_pole()
+            {
+                return ((this.podstawa1+this.podstawa2)*this.wysokosc)/2;
+            }
+
+
+        }
+             const Jean=new trapez(5,10,5,"jean");
+            const Cloth=new trapez(10,20,10,"cloth");
+            const Vandamme=new trapez(20,10,10,"vandamme");
+        console.log("Pole trapezu: "+Vandamme.licz_pole());
+
+        function PolePole(prostokat,trojkat,trapez)
+        {
+            let biggest = prostokat;
+            if(biggest.licz_pole()<trojkat.licz_pole())
+            {
+                biggest=trojkat;
+            }
+            if(biggest.licz_pole()<trapez.licz_pole())
+            {
+                biggest=trapez;
+            }
+            return biggest;
+        }
+       const x1=PolePole(Arek,Vandamme,Ulrich);
+       console.log("najwieksze pole z 3 figur wynosi :"+x1.licz_pole())
+       console.log("nazwa teh figury to: "+x1.name);
+       PolePole();
+    
+    </script>
+
+</body>
+</html>
