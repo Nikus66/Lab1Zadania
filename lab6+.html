@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lab 6+</title>
+</head>
+<body>
+
+	<script>
+
+        let tablica = [1,2,3,4,6,6,24,36];
+        console.log("Tablica: ");
+        console.log(tablica);
+        let suma = 0;
+        for(let i=0; i<tablica.length; i++)
+        {
+            suma+=tablica[i];
+        }
+
+        console.log("Suma elementów tablicy: "+suma);
+        console.log("Liczby parzyste w naszej tablicy: ");
+
+            
+        tablica.forEach(element => {element%2==0 ? console.log(element) : null;});
+        
+        console.log("nasza Tablica pomnożona przez 3: ");
+        tablica.forEach((element,index) => {tablica[index]=element*3;});
+        console.log(tablica);
+
+        tablica.push(67246);
+        console.log("Nr albumu: ");
+        console.log(tablica.indexOf(67246));
+            
+        console.log("Średnia: ");
+        let sumatablicy = 0;
+        for(let i=0; i<tablica.length; i++)
+        {
+            sumatablicy+=tablica[i];
+        }
+
+        console.log(sumatablicy/tablica.length);
+
+        let naj = null;
+        tablica.forEach(element => {
+            if(naj==null || naj<element)naj=element;
+        });
+
+        console.log("Najwieksza wartosc z tablicy: "+naj);
+
+        let liczbawystapien=3;
+        console.log("Nasza tablica: ");
+        console.log(tablica);
+
+        let ilerazy=0;
+
+        tablica.forEach(element => {
+            if(element==liczbawystapien)ilerazy++;
+        });
+
+        console.log("Ilość wystąpień szukanej wartości: "+ilerazy);
+
+        console.log("Tablica z Fibonaccim: ");
+
+        let fibonacci= [0, 1];
+        for (let i = 2; i < 100; i++) {
+        fibonacci[i] = fibonacci[i-1] + fibonacci[i-2];
+        }
+        console.log(fibonacci);
+
+    </script>
+
+</body>
+</html>
