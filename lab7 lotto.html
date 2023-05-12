@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>mi to lotto </title>
+</head>
+<body>
+    <script>
+    const generateBets = (numBets) => {
+        let bets = [];
+        for (let i = 0; i < numBets; i++) {
+          let bet = [];
+          while (bet.length < 6) {
+            let number = Math.floor(Math.random() * 49) + 1;
+            if (!bet.includes(number)) {
+              bet.push(number);
+            }
+          }
+          bets.push(bet);
+        }
+        return bets;
+      };
+      
+      const generateWinningNumbers = () => {
+        let winningNumbers = [];
+        while (winningNumbers.length < 6) {
+          let number = Math.floor(Math.random() * 49) + 1;
+          if (!winningNumbers.includes(number)) {
+            winningNumbers.push(number);
+          }
+        }
+        return winningNumbers;
+      };
+      
+      const checkBets = (bets, winningNumbers) => {
+        let results = { threes: [], fours: [], fives: [], sixes: [] };
+        for (let i = 0; i < bets.length; i++) {
+          let matches = bets[i].filter((number) => winningNumbers.includes(number));
+          if (matches.length === 3) {
+            results.threes.push(i);
+          } else if (matches.length === 4) {
+            results.fours.push(i);
+          } else if (matches.length === 5) {
+            results.fives.push(i);
+          } else if (matches.length === 6) {
+            results.sixes.push(i);
+          }
+        }
+        return results;
+      };
+      
+      let bets = generateBets(1000000);
+      let winningNumbers = generateWinningNumbers();
+      let results = checkBets(bets, winningNumbers);
+
+      console.log(`Wylosowane zwycięskie numery: ${winningNumbers}`);
+      console.log(`Wygrane trójki: ${results.threes.length}`);
+      console.log(`Wygrane czwórki: ${results.fours.length}`);
+      console.log(`Wygrane piątki: ${results.fives.length}`);
+      console.log(`Wygrane szóstki: ${results.sixes.length}`);
+    </script>
+
+</body>
+</html>
